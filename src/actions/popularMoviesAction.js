@@ -23,7 +23,6 @@ export const fetchInitialPopularMovies = () => async (dispatch, getState) => {
     } catch (error) {
         console.log(error)
         dispatch({ type: IS_INITIAL_POPULAR_MOVIES_FAIL, })
-
     }
 }
 

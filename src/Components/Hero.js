@@ -47,6 +47,7 @@ class Hero extends Component {
                                                 <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} uk-cover width="100%" alt={movie.original_name} />
                                                 <div className="movie-features">
                                                     <h1 className="title">{movie.original_title || movie.original_name}</h1>
+
                                                     <div style={{ overflow: 'auto' }}>
                                                         <dd className="movie-overview">
                                                             {movie.overview}

@@ -10,7 +10,6 @@ export default class Movies extends Component {
             <>
                 <Header />
                 <Hero />
-                <PopularMovies />
                 <MoviesMenu />
             </>
         )

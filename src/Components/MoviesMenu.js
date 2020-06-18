@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
+import PopularMovies from './PopularMovies'
 export class MoviesMenu extends Component {
     render() {
         return (
             <>
-                <div class="container">
-                    <div class="filterMenu">
-                        <ul class="menuList">
+                <div className="container">
+                    <div className="filterMenu">
+                        <ul className="menuList">
                             <li>
                                 <a href="#" class="active">Popular</a>
                             </li>
@@ -22,6 +22,13 @@ export class MoviesMenu extends Component {
                         </ul>
                     </div>
                 </div>
+
+                <div className="container card-row">
+                    <div className="row">
+                        <PopularMovies />
+                    </div>
+                </div>
+
             </>
         )
     }

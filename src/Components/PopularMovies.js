@@ -1,17 +1,36 @@
 import React, { Component } from 'react'
-
-
+import { connect } from 'react-redux';
+import { fetchInitialPopularMovies } from '../actions/popularMoviesAction'
+import MovieCard from './MovieCard'
 
 class PopularMovies extends Component {
 
 
-    render() {
-        return (
-            <div>
+    componentDidMount = () => {
+        const { fetchInitialPopularMovies, movies } = this.props;
+        fetchInitialPopularMovies();
+    }
 
-            </div>
+    render() {
+        const { fetchInitialPopularMovies, movies } = this.props;
+
+        return (
+            <>
+                {
+                    movies.map((movie, index) =>
+                        <MovieCard movie={movie} key={movie.id}/>
+                    )
+                }
+            </>
         )
     }
 }
 
-export default PopularMovies
+const mapStateToProps = (state) => ({
+    isInitialLoading: state.movies.isInitialLoading,
+    error: state.movies.error,
+    movies: state.movies.movies
+});
+
+export default connect(mapStateToProps, { fetchInitialPopularMovies })(PopularMovies)
+
