@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
+.hero-slide {
+  position: relative;
+}
+
+.hero-slide .uk-slideshow-items {
+  position: relative;
+}
+
+.hero-slide .uk-slideshow-items img {
+  -webkit-filter: brightness(80%) !important;
+          filter: brightness(80%) !important;
+}
+
+.hero-slide .uk-slideshow-items:after {
+  position: absolute;
+  content: "";
+ 
+  
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(0, 0, 0, 0.5)), color-stop(90%, black));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 10%, black 90%);
+}
+
+.hero-slide .movie-features {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}
+
+.hero-slide .movie-features .title {
+  color: #fff;
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.hero-slide .movie-features dd {
+  color: #fff;
+  line-height: 20px;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+}
+
+
+.hero-slide .movie-features .category {
+  color: #fff;
+  line-height: 20px;
+  font-size: 20px;
+  padding: 10px 0px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 730px) {
+  .movie-features {
+    top: 30% !important;
+    left: 1%;
+  }
+  .movie-features .title {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .movie-features dd {
+    line-height: 16px;
+    padding: 5px 7px;
+  }
+  .movie-features .stars * {
+    color: #DAA520;
+    font-size: 40px;
+    line-height: 60px;
+    text-shadow: 0 5px 10px rgba(218, 165, 32, 0.4);
+  }
+  .movie-features .category {
+    color: #fff;
+    line-height: 20px;
+    padding: 5px 0px;
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=hero.css.map */

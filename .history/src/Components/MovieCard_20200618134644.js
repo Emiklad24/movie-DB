@@ -11,10 +11,10 @@ class MovieCard extends Component {
         if (movie) {
             genre = movie.map(id => {
                 const item = genres.find(item => item.id === id);
-            return item ? `${item.name} | ` : null;
+            return item ? item.name + ", " : null;
             })
         }
-        return genre;
+        return {genre};
     }
 
     render() {
@@ -24,7 +24,7 @@ class MovieCard extends Component {
 
                 <div className="col mt-5">
                     <a href="#">
-                        <div className="card" uk-scrollspy="cls: uk-animation-fade; repeat: true">
+                        <div className="card fadeIn animated">
                             <div className="card-img">
                                 <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.original_title || movie.original_name} />
                             </div>

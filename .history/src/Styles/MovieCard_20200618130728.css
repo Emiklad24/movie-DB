@@ -7,8 +7,6 @@
   height: auto;
   border-radius: 0px;
   width: 200px;
-  min-height: 450px !important;
-  margin-bottom: 30px;
 }
 
 .card .card-img {
@@ -28,8 +26,6 @@
 .card .card-content .movie-content {
   position: relative;
   padding-left: 10px;
-  padding-top: 50px;
-
 }
 
 .card .card-content .movie-content .watchlist-btn {
@@ -58,7 +54,6 @@
 
 .card .card-content .movie-content .movie-title {
   padding-top: 15px;
-  line-height: 20px;
   color: #fff;
 }
 

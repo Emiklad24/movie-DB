@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PopularMovies from './PopularMovies'
-import '../Styles/MoviesMenu.css';
-
 export class MoviesMenu extends Component {
     render() {
         return (
@@ -10,7 +8,7 @@ export class MoviesMenu extends Component {
                     <div className="filterMenu">
                         <ul className="menuList">
                             <li>
-                                <a href="#" className="active">Popular</a>
+                                <a href="#" class="active">Popular</a>
                             </li>
                             <li>
                                 <a href="#">Now Playing</a>

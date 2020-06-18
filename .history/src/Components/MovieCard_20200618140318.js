@@ -24,7 +24,7 @@ class MovieCard extends Component {
 
                 <div className="col mt-5">
                     <a href="#">
-                        <div className="card" uk-scrollspy="cls: uk-animation-fade; repeat: true">
+                        <div className="card fadeIn animated">
                             <div className="card-img">
                                 <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.original_title || movie.original_name} />
                             </div>
