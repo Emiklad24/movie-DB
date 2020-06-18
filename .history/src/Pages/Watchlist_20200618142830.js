@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header';
 
-export class WatchList extends Component {
+export class Watchlist extends Component {
     render() {
         return (
             <>
@@ -11,4 +11,4 @@ export class WatchList extends Component {
     }
 }
 
-export default WatchList
+export default Watchlist

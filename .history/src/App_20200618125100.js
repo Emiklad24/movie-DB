@@ -39,7 +39,6 @@ let persistor = persistStore(store)
 const Movies = lazy(() => import("./Pages/Movies.js"));
 const Signup = lazy(() => import("./Pages/Signup.js"));
 const Login = lazy(() => import("./Pages/Login"));
-const Watchlist = lazy(() => import("./Pages/Watchlist"));
 
 class App extends React.Component {
 
@@ -52,7 +51,7 @@ class App extends React.Component {
               <ToastContainer
                 limit={1}
                 position="top-right"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={true}
                 closeOnClick={true}
                 pauseOnHover={true}
@@ -63,9 +62,7 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Movies} />
                   <Route exact path="/login" component={Login} />
-                  <PrivateRoute exact path="/watchlist" component={WatchList} />
                   <Route exact path="/signup" component={Signup} />
-                  <Route exact path="/watchlist" component={Watchlist} />
                   <Route component={Error404} />
                 </Switch>
               </Suspense>

@@ -22,9 +22,9 @@ class MovieCard extends Component {
         return (
             <>
 
-                <div className="col mt-5" uk-scrollspy="cls: uk-animation-fade; target: .card; delay: 500; repeat: true">
+                <div className="col mt-5">
                     <a href="#">
-                        <div className="card">
+                        <div className="card" uk-scrollspy="cls: uk-animation-fade; delay: 500">
                             <div className="card-img">
                                 <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.original_title || movie.original_name} />
                             </div>
