@@ -36,7 +36,7 @@ class Signup extends Component {
                             <div className="form-row login">
                                 <input type="submit" value="Login" />
                                 <div className="login-icons">Sign up with <Link to="/signup"><i className="fa fa-google"></i></Link></div>
-                                <p>Already have an account <i className="fa fa-arrow-right"></i><a href="login.html"> Login</a></p>
+                                <p>Already have an account <i className="fa fa-arrow-right"></i><Link to="/login"> Login</Link></p>
                             </div>
                         </form>
                     </div>
