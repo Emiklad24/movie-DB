@@ -39,7 +39,6 @@ let persistor = persistStore(store)
 const Movies = lazy(() => import("./Pages/Movies.js"));
 const Signup = lazy(() => import("./Pages/Signup.js"));
 const Login = lazy(() => import("./Pages/Login"));
-const Watchlist = lazy(() => import("./Pages/Watchlist"));
 
 class App extends React.Component {
 
@@ -64,7 +63,6 @@ class App extends React.Component {
                   <Route exact path="/" component={Movies} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/signup" component={Signup} />
-                  <Route exact path="/watchlist" component={Watchlist} />
                   <Route component={Error404} />
                 </Switch>
               </Suspense>
