@@ -24,19 +24,23 @@ const movie =   {
     overview: 'In a suburban fantasy world, two teenage elf brothers embark on an extraordinary quest to discover if there is still a little magic left out there.',
     poster_path: '/f4aul3FyD3jv3v4bul1IrkWZvzq.jpg',
     popularity: 88.444,
-    media_type: 'movie',
-    userId: '',
-    archived: false
+    media_type: 'movie'
   }
 
 class Watchlist extends Component {
-    
+    constructor(props){
+        super(props);
+        this.state = {
+            userId: '',
+            archived: false
+        }
+    }
     render() {
         return (
             <>
                 <Header />
                 <MoviesMenu />
-                <MovieCard movie={movie} />
+                <MovieCard movie= {movie} />
             </>
         )
     }
