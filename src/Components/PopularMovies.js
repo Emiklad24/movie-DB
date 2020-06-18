@@ -7,18 +7,18 @@ class PopularMovies extends Component {
 
 
     componentDidMount = () => {
-        const { fetchInitialPopularMovies, movies } = this.props;
+        const { fetchInitialPopularMovies } = this.props;
         fetchInitialPopularMovies();
     }
 
     render() {
-        const { fetchInitialPopularMovies, movies } = this.props;
+        const { movies } = this.props;
 
         return (
             <>
                 {
                     movies.map((movie, index) =>
-                        <MovieCard movie={movie} key={movie.id}/>
+                        <MovieCard movie={movie} key={movie.id} />
                     )
                 }
             </>

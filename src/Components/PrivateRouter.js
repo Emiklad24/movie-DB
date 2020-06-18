@@ -11,12 +11,10 @@ const PrivateRoute = ({ isAuthLoading, isAuthenticated, active, role, component:
             isAuthLoading === true && isAuthenticated === null ?
                 <FallbackSuspense />
                 : isAuthLoading === false && isAuthenticated === false ?
-                    <Redirect to="/login?track=notauthenticated" /> :
+                    <Redirect to="/login" /> :
                     isAuthLoading === false && isAuthenticated === null ?
-                        <Redirect to="/login?track=notauthenticated" /> :
-                        active === false ?
-                            <Redirect to="/deactivated" /> :
-                            <Component {...props} />
+                        <Redirect to="/login" /> :
+                        <Component {...props} />
         )} />
     );
 };

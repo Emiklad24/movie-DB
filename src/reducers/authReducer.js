@@ -15,12 +15,7 @@ const initialState = {
     isAuthenticated: null,
     isLoading: false,
     user: null,
-    message: null,
-    active: null,
-    status_code: null,
-    id: null,
-    role: null,
-    name: null,
+
 }
 
 export default function (state = initialState, action) {
@@ -35,15 +30,10 @@ export default function (state = initialState, action) {
                 ...state,
                 isAuthenticated: true,
                 isLoading: false,
-                id: action.payload.user._id,
-                active: action.payload.user.active,
-                role: action.payload.user.role,
-                name: action.payload.user.name,
                 token: localStorage.getItem('feathers-jwt') === '' || localStorage.getItem('feathers-jwt') === null || localStorage.getItem('feathers-jwt') === undefined ? action.payload.accessToken : localStorage.getItem('feathers-jwt'),
                 user: action.payload.user,
             }
         case LOGIN_SUCCESS:
-        case REGISTER_SUCCESS:
             localStorage.setItem('feathers-jwt', action.payload.accessToken)
             return {
                 ...state,
@@ -51,15 +41,10 @@ export default function (state = initialState, action) {
                 token: localStorage.getItem('feathers-jwt', action.payload.accessToken),
                 isAuthenticated: true,
                 isLoading: false,
-                id: action.payload.user._id,
-                active: action.payload.user.active,
-                role: action.payload.user.role,
-                name: action.payload.user.name,
                 user: action.payload.user,
 
             };
         case AUTH_ERROR:
-        case LOGIN_FAIL:
         case LOGOUT_SUCCESS:
         case REGISTER_FAIL:
             localStorage.removeItem('feathers-jwt')
@@ -70,12 +55,6 @@ export default function (state = initialState, action) {
                 token: null,
                 isAuthenticated: false,
                 isLoading: false,
-                status_code: null,
-                message: null,
-                id: null,
-                role: null,
-                name: null,
-                active: null,
                 user: null,
 
             }
@@ -88,12 +67,6 @@ export default function (state = initialState, action) {
                 token: null,
                 isAuthenticated: false,
                 isLoading: false,
-                status_code: null,
-                message: action.payload.message,
-                id: null,
-                role: null,
-                name: null,
-                active: null,
                 user: null,
 
             }
@@ -106,12 +79,6 @@ export default function (state = initialState, action) {
                 token: null,
                 isAuthenticated: false,
                 isLoading: false,
-                status_code: null,
-                message: null,
-                id: null,
-                role: null,
-                name: null,
-                active: null,
                 user: null,
             }
         default:
