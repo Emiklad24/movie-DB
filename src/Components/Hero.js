@@ -26,9 +26,7 @@ class Hero extends Component {
             });
             this.setState({ isLoading: false, error: false, popularMovies: popularMovies.data.results })
 
-            console.log(this.state.popularMovies);
         } catch (error) {
-            console.log(error)
             this.setState({ isLoading: false, error: true })
         }
     }

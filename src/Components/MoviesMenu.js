@@ -8,7 +8,7 @@ export class MoviesMenu extends Component {
                     <div className="filterMenu">
                         <ul className="menuList">
                             <li>
-                                <a href="#" class="active">Popular</a>
+                                <a href="#" className="active">Popular</a>
                             </li>
                             <li>
                                 <a href="#">Now Playing</a>

@@ -11,7 +11,7 @@ export class Login extends Component {
                 <Header />
                 <div class="container">
                     <div class="form mx-auto my-auto">
-                        <form method="" action="">
+                        <form >
                             <div class="form-title" id="form-title">Login</div>
                             <div class="form-row">
                                 <div class="input-group">
