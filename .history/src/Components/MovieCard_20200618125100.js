@@ -1,22 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/MovieCard.css';
-import { genres } from '../Constant/MovieGenres';
-
-
 
 class MovieCard extends Component {
-
-    getGenre = movie => {
-        let genre = '';
-        if (movie) {
-            genre = movie.map(id => {
-                const item = genres.find(item => item.id === id);
-            return item ? item.name + " | " : null;
-            })
-        }
-        return genre;
-    }
-
     render() {
         const { movie } = this.props
         return (
@@ -35,7 +20,7 @@ class MovieCard extends Component {
                                         <i className="fa fa-bookmark"></i>
                                     </a>
                                     <div className="movie-title">{movie.original_title || movie.original_name}</div>
-                                    <p> {this.getGenre(movie.genre_ids)} </p>
+                                    <p>Animation, Comedy, Family</p>
                                 </div>
                             </div>
                         </div>

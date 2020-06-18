@@ -7,8 +7,7 @@
   height: auto;
   border-radius: 0px;
   width: 200px;
-  min-height: 450px !important;
-  margin-bottom: 30px;
+  min-height: 400px !important;
 }
 
 .card .card-img {
@@ -28,7 +27,7 @@
 .card .card-content .movie-content {
   position: relative;
   padding-left: 10px;
-  padding-top: 50px;
+  padding-top: 27px;
 
 }
 

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PopularMovies from './PopularMovies'
-import '../Styles/MoviesMenu.css';
-
 export class MoviesMenu extends Component {
     render() {
         return (

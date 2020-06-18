@@ -16,7 +16,7 @@ body {
   
   background-image: url("../Assets/Images/bg.jpg");
   overflow-x: hidden;
-  min-height: 100vh !important;
+  min-height: 100% !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

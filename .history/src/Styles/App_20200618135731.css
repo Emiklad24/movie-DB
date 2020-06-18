@@ -9,11 +9,7 @@
   outline: none;
 }
 
-html {
-  background-color: black !important;
-}
 body {
-  
   background-image: url("../Assets/Images/bg.jpg");
   overflow-x: hidden;
   min-height: 100vh !important;

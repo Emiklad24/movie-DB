@@ -11,10 +11,10 @@ class MovieCard extends Component {
         if (movie) {
             genre = movie.map(id => {
                 const item = genres.find(item => item.id === id);
-            return item ? item.name + " | " : null;
+            return item ? item.name + ", " : null;
             })
         }
-        return genre;
+        return {genre};
     }
 
     render() {
@@ -35,7 +35,7 @@ class MovieCard extends Component {
                                         <i className="fa fa-bookmark"></i>
                                     </a>
                                     <div className="movie-title">{movie.original_title || movie.original_name}</div>
-                                    <p> {this.getGenre(movie.genre_ids)} </p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>

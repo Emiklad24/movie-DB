@@ -11,10 +11,10 @@ class MovieCard extends Component {
         if (movie) {
             genre = movie.map(id => {
                 const item = genres.find(item => item.id === id);
-            return item ? item.name + " | " : null;
+            return item ? item.name + ", " : null;
             })
         }
-        return genre;
+        return {genre};
     }
 
     render() {

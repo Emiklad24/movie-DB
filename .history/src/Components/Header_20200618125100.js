@@ -24,7 +24,7 @@ export class Header extends Component {
                                 <span className="nav-icon">
                                     <i className="fa fa-bookmark"></i>
                                 </span>
-                                <span className="menu-text">Watchlist</span>
+                                <span className="menu-text">Wishlist</span>
                             </Link>
                             <Link className="item" to="/login">
                                 <span className="nav-icon">
