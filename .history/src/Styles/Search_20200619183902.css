@@ -9,12 +9,14 @@ body {
   position: fixed;
   top:0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  min-height: 100vh;
-  min-width: 100%;
-  overflow: auto;
 }
 
+.searchResults {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  min-height: 100vh;
+  
+  
+}
 
 .btn-Modal {
 position: fixed;

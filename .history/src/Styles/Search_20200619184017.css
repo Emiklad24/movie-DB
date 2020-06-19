@@ -12,7 +12,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5) !important;
   min-height: 100vh;
   min-width: 100%;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 

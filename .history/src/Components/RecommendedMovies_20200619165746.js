@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
-import '../Styles/MovieActorList.css'
 
 
 class RecommendedMovies extends Component {

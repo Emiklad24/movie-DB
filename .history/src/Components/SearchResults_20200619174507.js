@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import '../Styles/SearchResults.css'
+import Search from './Search'
 
 class SearchResults extends Component {
     render() {
         return (
             <>
-                <div className="container">                    
-                        <div className="displaySearchResults">
+                <div className="container">
+                    <a className="btn-Modal" href="#modal-full" uk-toggle><i className="fa fa-search"></i></a>
+
+                    <div id="modal-full" className="uk-modal-full uk-animation-slide-right" uk-modal>
+                        <div className="uk-modal-dialog">
+                            <button className="uk-modal-close-full uk-close-large" type="button" uk-close></button>
                             <div className="container">
                                 <div className="searchBar">
                                     <div className="input-group mb-2">
@@ -180,6 +184,7 @@ class SearchResults extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </>
         )
