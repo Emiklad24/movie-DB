@@ -3,17 +3,13 @@ import { connect } from 'react-redux';
 
 import MovieCard from './MovieCard'
 
-class PopularMovies extends Component {
-
-
-
+class UpcomingMovies extends Component {
 
     render() {
         const { movies } = this.props;
 
         return (
             <>
-
                 {
                     movies.map((movie, index) =>
                         <MovieCard movie={movie} key={movie.id} canDelete={false} onWatchlist={false} />
@@ -25,10 +21,10 @@ class PopularMovies extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    isInitialLoading: state.popularMovies.isInitialLoading,
-    error: state.popularMovies.error,
-    movies: state.popularMovies.movies
+    isInitialLoading: state.upcomingMovies.isInitialLoading,
+    error: state.upcomingMovies.error,
+    movies: state.upcomingMovies.movies
 });
 
-export default connect(mapStateToProps, {})(PopularMovies)
+export default connect(mapStateToProps, {})(UpcomingMovies)
 

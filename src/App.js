@@ -15,6 +15,13 @@ import './Styles/App.css';
 import PrivateRoute from './Components/PrivateRouter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { fetchInitialPopularMovies } from './actions/popularMoviesAction'
+import { fetchInitialNowPlayingMovies } from './actions/nowPlayingMoviesAction'
+import { fetchInitialTopRatedMovies } from './actions/topRatedMoviesAction'
+import { fetchInitialUpcomingMovies } from './actions/upcomingMoviesAction'
+
+
+
 
 const middleware = [thunk];
 
@@ -39,9 +46,16 @@ let persistor = persistStore(store)
 const Movies = lazy(() => import("./Pages/Movies.js"));
 const Signup = lazy(() => import("./Pages/Signup.js"));
 const Login = lazy(() => import("./Pages/Login"));
-const Watchlist = lazy(() => import("./Pages/Watchlist"));
+const WatchList = lazy(() => import("./Pages/WatchList"));
+const MoviePage = lazy(() => import("./Pages/MoviePage"));
 
 class App extends React.Component {
+  componentDidMount = () => {
+    store.dispatch(fetchInitialPopularMovies());
+    store.dispatch(fetchInitialNowPlayingMovies());
+    store.dispatch(fetchInitialTopRatedMovies());
+    store.dispatch(fetchInitialUpcomingMovies());
+  }
 
   render() {
     return (
@@ -63,9 +77,9 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Movies} />
                   <Route exact path="/login" component={Login} />
+                  <Route exact path="/movie/:moviename" component={MoviePage} />
                   <PrivateRoute exact path="/watchlist" component={WatchList} />
                   <Route exact path="/signup" component={Signup} />
-                  <Route exact path="/watchlist" component={Watchlist} />
                   <Route component={Error404} />
                 </Switch>
               </Suspense>

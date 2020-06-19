@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import pix from '../Assets/Images/bg2.jpg'
 import '../Styles/Hero.css';
 import { genres } from '../Constant/MovieGenres';
 import { connect } from 'react-redux';
@@ -23,9 +23,9 @@ class Hero extends Component {
         const topMovies = movies.slice(0, 20)
         return (
             <>
-                <section className="hero">
+                <section className="hero uk-animation-fade">
                     <div className="hero-slide">
-                        <div uk-slideshow="autoplay: true; autoplay-interval: 3000; pause-on-hover: true; animation: fade;">
+                        <div uk-slideshow="autoplay: true; autoplay-interval: 5000; pause-on-hover: true; animation: fade;">
                             <ul className="uk-slideshow-items" uk-height-viewport="min-height: 300">
                                 {
                                     topMovies.length > 0 ?
@@ -47,7 +47,22 @@ class Hero extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                        ) : null
+                                        ) :
+                                        <>
+                                            <li>
+                                                <img src={pix} className="uk-animation-kenburns" uk-cover width="100%" alt="Placeholder-hero" />
+                                                <div className="container">
+                                                    <div className="movie-features">
+                                                        <h1 className="title">Welcome to Movie App</h1>
+                                                        <div>
+                                                            <dd className="movie-overview">
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, cumque.
+                                                            </dd>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </>
                                 }
                             </ul>
                         </div>
@@ -60,9 +75,9 @@ class Hero extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    isInitialLoading: state.movies.isInitialLoading,
-    error: state.movies.error,
-    movies: state.movies.movies
+    isInitialLoading: state.popularMovies.isInitialLoading,
+    error: state.popularMovies.error,
+    movies: state.popularMovies.movies
 });
 
 export default connect(mapStateToProps, {})(Hero)

@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header';
 import Hero from '../Components/Hero';
-import PopularMovies from '../Components/PopularMovies'
 import MoviesMenu from '../Components/MoviesMenu'
-import Search from '../Components/Search'
+import Search from '../Components/Search';
+import { connect } from 'react-redux';
+import { fetchWatchlists } from '../actions/watchlistAction'
 
-export default class Movies extends Component {
+
+class Movies extends Component {
+
+    componentDidMount = () => {
+        const { isAuthenticated, userData, fetchWatchlists } = this.props;
+        if (isAuthenticated) {
+            fetchWatchlists(userData._id)
+        }
+    }
+
+
     render() {
         return (
             <>
@@ -17,3 +28,12 @@ export default class Movies extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    isAuthLoading: state.auth.isLoading,
+    userData: state.auth.user,
+});
+
+export default connect(mapStateToProps, { fetchWatchlists })(Movies)
+
