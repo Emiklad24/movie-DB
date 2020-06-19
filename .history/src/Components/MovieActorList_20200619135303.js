@@ -5,7 +5,7 @@ class MovieActorList extends Component {
     render() {
         return (
             <div className="container">
-                <div className="movie-cast uk-animation-fade delay: 200">
+                <div className="movie-cast uk-animation-fade delay: 500">
                     <div className="d-flex justify-content-between align-align-items-center">
                         <h3 className="cast-title mb-4">Actors</h3>
                         <div className="custom-control custom-switch pr-5 info">

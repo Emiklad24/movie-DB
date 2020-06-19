@@ -33,11 +33,9 @@
   padding-top: 50px;
 
 }
-.watchlist-btn:hover, .watchlist-btn:active, .movie-title:hover, .movie-title:active {
+.watchlist-btn:hover, .watchlist-btn:active {
   text-decoration: none;
 }
-
-
 
 .card .card-content .movie-content .watchlist-btn {
   top: 10px;

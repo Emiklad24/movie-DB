@@ -32,7 +32,7 @@
 
 .hero-slide .movie-features {
   position: absolute;
-  top: 55%;
+  top: 70%;
   left: 10%;
 }
 
@@ -52,6 +52,7 @@
   font-weight: 300;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  hyphens: auto;
   width: 50%;
 }
 
@@ -69,13 +70,12 @@
     left: 1%;
   }
   .movie-features .title {
-    font-size: 30px !important;
+    font-size: 30px;
     line-height: 30px;
   }
   .movie-features dd {
     line-height: 16px;
     padding: 5px 7px;
-    width: 100% !important;
   }
   .movie-features .stars * {
     color: #daa520;

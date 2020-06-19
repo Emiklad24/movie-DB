@@ -33,22 +33,23 @@ body {
 .Toastify__toast--error {
   background-color: rgba(0,0,0,0.5) !important;
   border: 1px solid red !important;
+  color: red !important;
 }
 .Toastify__toast-body{
-  padding: 5px;
+ 
 }
 
 .Toastify__close-button > svg, .Toastify__close-button > svg:active, .Toastify__close-button > svg:hover {
   fill: white !important;
-  height: 20px !important;
-  width: 20px !important;
+  height: 30px !important;
+  width: 30px !important;
   border-radius: 50% !important;
   border: none !important;
-  
+  width: 50% !important;
 }
 .Toastify__toast--success {
   background: rgba(0,0,0,0.5) !important;
-  border: 1px solid rgba(218, 165, 32, 1) !important;
+  color: rgba(218, 165, 32, 1) !important;
 }
 .swal-modal {
   background-color: rgba(0,0,0,0.5);

@@ -35,6 +35,7 @@ body {
   border: 1px solid red !important;
 }
 .Toastify__toast-body{
+ 
   padding: 5px;
 }
 
@@ -48,7 +49,7 @@ body {
 }
 .Toastify__toast--success {
   background: rgba(0,0,0,0.5) !important;
-  border: 1px solid rgba(218, 165, 32, 1) !important;
+  color: rgba(218, 165, 32, 1) !important;
 }
 .swal-modal {
   background-color: rgba(0,0,0,0.5);

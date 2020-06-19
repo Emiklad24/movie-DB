@@ -17,4 +17,21 @@
   color: #867c7c;
 }
 
+@-webkit-keyframes changeBg {
+  from {
+    background-color: rgba(17, 16, 16, 0.822);
+  }
+  to {
+    background-color: black;
+  }
+}
+
+@keyframes changeBg {
+  from {
+    background-color: rgba(17, 16, 16, 0.822);
+  }
+  to {
+    background-color: black;
+  }
+}
 /*# sourceMappingURL=fallBackSuspense.css.map */

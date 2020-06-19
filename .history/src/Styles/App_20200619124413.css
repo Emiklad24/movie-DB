@@ -31,24 +31,11 @@ body {
 }
 
 .Toastify__toast--error {
-  background-color: rgba(0,0,0,0.5) !important;
-  border: 1px solid red !important;
+  background:  rgba(#e74c3c, 0.5) !important;
 }
-.Toastify__toast-body{
-  padding: 5px;
-}
-
-.Toastify__close-button > svg, .Toastify__close-button > svg:active, .Toastify__close-button > svg:hover {
-  fill: white !important;
-  height: 20px !important;
-  width: 20px !important;
-  border-radius: 50% !important;
-  border: none !important;
-  
-}
-.Toastify__toast--success {
-  background: rgba(0,0,0,0.5) !important;
-  border: 1px solid rgba(218, 165, 32, 1) !important;
+.Toastify__toast-container {
+  margin: auto 0;
+  flex: 1 1 auto;
 }
 .swal-modal {
   background-color: rgba(0,0,0,0.5);

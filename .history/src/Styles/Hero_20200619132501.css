@@ -11,6 +11,10 @@
   height: 100vh;
   width: 100vw;
 }
+.hero-overlay{
+  background: url('../Assets/Images/over.png');
+  z-index: 1;
+}
 .hero-slide .uk-slideshow-items img {
   -webkit-filter: brightness(80%) !important;
   filter: brightness(80%) !important;
@@ -32,7 +36,7 @@
 
 .hero-slide .movie-features {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 10%;
 }
 
@@ -40,7 +44,7 @@
   color: #fff;
   font-weight: 700;
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 50px;
 }
 
@@ -50,9 +54,6 @@
   font-size: 18px;
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 300;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  width: 50%;
 }
 
 .hero-slide .movie-features .category {
@@ -69,13 +70,12 @@
     left: 1%;
   }
   .movie-features .title {
-    font-size: 30px !important;
+    font-size: 30px;
     line-height: 30px;
   }
   .movie-features dd {
     line-height: 16px;
     padding: 5px 7px;
-    width: 100% !important;
   }
   .movie-features .stars * {
     color: #daa520;

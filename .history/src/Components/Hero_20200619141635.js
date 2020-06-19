@@ -30,7 +30,7 @@ class Hero extends Component {
                                 {
                                     topMovies.length > 0 ?
                                         topMovies.map((movie, index) =>
-                                            <li key={movie.id} className=" uk-animation-kenburns">
+                                            <li key={movie.id}>
                                                 <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}  uk-cover width="100%" alt={movie.original_name} />
                                                 <div className="hero-overlay"></div>
                                                 <div className="container">

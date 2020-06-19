@@ -105,7 +105,7 @@ class MovieCard extends Component {
                                 }
                                 <Link className="movie-title" to={`/movie/${currentMovieName}?id=${currentMovieId}`}
                                 >
-                                    <div >{currentMovieName || "Movie App"}</div>
+                                    <div className="movie-title">{currentMovieName || "Movie App"}</div>
                                 </Link>
                                 <p> {this.getGenre(movie.genre_ids)} </p>
                             </div>

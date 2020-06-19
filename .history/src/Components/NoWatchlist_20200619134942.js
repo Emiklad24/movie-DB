@@ -8,7 +8,7 @@ class NoWatchlist extends Component {
             <>
                 <div className="container">
                     <div className="card-wrapper">
-                        <div className="card-lg uk-animation-fade delay: 500">
+                        <div className="card-lg uk-animation-fade delay:300">
                             <div>No movies on your watchlist.</div>
                 
                             <Link to="/">

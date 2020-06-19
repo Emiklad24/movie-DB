@@ -25,13 +25,13 @@ class Hero extends Component {
             <>
                 <section className="hero uk-animation-fade">
                     <div className="hero-slide">
-                        <div uk-slideshow="autoplay: true; autoplay-interval: 5000; pause-on-hover: true; animation: kenburns;">
+                        <div uk-slideshow="autoplay: true; autoplay-interval: 5000; pause-on-hover: true; animation: fade;">
                             <ul className="uk-slideshow-items" uk-height-viewport="min-height: 300">
                                 {
                                     topMovies.length > 0 ?
                                         topMovies.map((movie, index) =>
-                                            <li key={movie.id} className=" uk-animation-kenburns">
-                                                <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}  uk-cover width="100%" alt={movie.original_name} />
+                                            <li key={movie.id}>
+                                                <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} className="uk-animation-kenburns; delay: 500" uk-cover width="100%" alt={movie.original_name} />
                                                 <div className="hero-overlay"></div>
                                                 <div className="container">
                                                     <div className="">

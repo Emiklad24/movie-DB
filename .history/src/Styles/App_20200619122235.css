@@ -30,47 +30,21 @@ body {
   margin: 20px 0px;
 }
 
-.Toastify__toast--error {
-  background-color: rgba(0,0,0,0.5) !important;
-  border: 1px solid red !important;
-}
-.Toastify__toast-body{
-  padding: 5px;
-}
-
-.Toastify__close-button > svg, .Toastify__close-button > svg:active, .Toastify__close-button > svg:hover {
-  fill: white !important;
-  height: 20px !important;
-  width: 20px !important;
-  border-radius: 50% !important;
-  border: none !important;
-  
-}
-.Toastify__toast--success {
-  background: rgba(0,0,0,0.5) !important;
-  border: 1px solid rgba(218, 165, 32, 1) !important;
-}
 .swal-modal {
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid white;
+  border: 3px solid black;
 }
 .swal-text {
-  background-color: transparent;
-  padding: 10px 0;
+  background-color: rgba(0,0,0,0.5);
+  border: 3px solid black;
   color: #fff;
 }
-.swal-button, .swal-button-confirm {
-  padding: 10px;
-  border-radius: 20px;
+.swal-button {
+  padding: 5px;
+  border-radius: 2px;
   background-color: #fff;
+  border: 1px solid #fff;
   color: black;
-  font-weight: 500;
-  outline: none !important;
-  outline-color: white !important;
-}
-.swal-button:hover, .swal-button-confirm:hover, .swal-button-confirm:active, .swal-button:active {
-  background-color: white !important;
-  outline-color: white !important;
 }
 
 @-webkit-keyframes animateOpacity {

@@ -69,7 +69,7 @@
     left: 1%;
   }
   .movie-features .title {
-    font-size: 30px !important;
+    font-size: 30px;
     line-height: 30px;
   }
   .movie-features dd {
