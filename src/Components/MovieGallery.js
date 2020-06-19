@@ -1,50 +1,36 @@
 import React, { Component } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import ImageGallery from "react-image-gallery"
+
+import "react-image-gallery/styles/css/image-gallery.css"
 
 class MovieGallery extends Component {
 
+    getImages = () => {
+        let images = []
+        let image;
+        if (this.props.posters) {
+            this.props.posters.map(poster => {
+                image = {
+                    original: `https://image.tmdb.org/t/p/original${poster.file_path}`,
+                    thumbnail: `https://image.tmdb.org/t/p/original${poster.file_path}`
+                }
+                images.push(image)
+            })
+            return images;
+        }
+    }
+
     render() {
+        const { posters } = this.props
         return (
-            <div className="container">
-                <Carousel>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/original/kvbbK2rLGSJh9rf6gg1i1iVLYQS.jpg" alt="movieGallery Img 1" />
-                    </div>
-                </Carousel>   
+            <div className="container" style={{ maxHeight: 400 }}>
+                {
+                    posters ?
+                        <ImageGallery items={this.getImages()} />
+                        : null
+                }
             </div>
         )
     }
