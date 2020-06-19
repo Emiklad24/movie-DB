@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../Styles/Watchlist.css'
 import { connect } from 'react-redux';
 import Header from '../Components/Header'
 import MovieCard from '../Components/MovieCard'

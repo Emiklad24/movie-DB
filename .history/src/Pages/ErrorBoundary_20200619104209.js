@@ -1,6 +1,4 @@
 import React from 'react';
-import '../Styles/ErrorBoundary.css';
-import { Link } from 'react-router-dom';
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -20,8 +18,8 @@ export default class ErrorBoundary extends React.Component {
             return (
                 <div className="wrapper">
                     <div className="container">
-                        <div className="errorBoundary">
-                            <h1>An error occurred.</h1>
+                        <div className="error404">
+                            <h1>404 (Page Not Found)</h1>
                             <Link className="goBack" to="/"><i className="fa fa-arrow-left"></i>  Go back </Link>
                         </div>
                         

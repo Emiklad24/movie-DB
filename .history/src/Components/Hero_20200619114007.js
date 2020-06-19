@@ -33,23 +33,18 @@ class Hero extends Component {
                                             <li key={movie.id}>
                                                 <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} className="uk-animation-kenburns delay: 300;" uk-cover width="100%" alt={movie.original_name} />
                                                 <div className="container">
-                                                    <div className="">
-                                                        <div className="">
-                                                            <div className="movie-features">
-                                                                <h1 className="title">{movie.original_title || movie.original_name}</h1>
-                                                                <div className="category">
-                                                                    {this.getGenre(movie.genre_ids)}
-                                                                </div>
-                                                                <div>
-                                                                    <dd className="movie-overview">
-                                                                        {movie.overview.length > 250 ?
-                                                                            movie.overview.substr(0, 250) + '...' : movie.overview}
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
+                                                    <div className="movie-features">
+                                                        <h1 className="title">{movie.original_title || movie.original_name}</h1>
+                                                        <div className="category">
+                                                            {this.getGenre(movie.genre_ids)}
+                                                        </div>
+                                                        <div>
+                                                            <dd className="movie-overview">
+                                                                {movie.overview.length > 250 ?
+                                                                    movie.overview.substr(0, 250) + '...' : movie.overview}
+                                                            </dd>
                                                         </div>
                                                     </div>
-                                                    
                                                 </div>
                                             </li>
                                         ) :

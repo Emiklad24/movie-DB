@@ -1,0 +1,15 @@
+.card-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+@media screen and (max-width:600px){
+    .card-row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

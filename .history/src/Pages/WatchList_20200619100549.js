@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../Styles/Watchlist.css'
 import { connect } from 'react-redux';
 import Header from '../Components/Header'
 import MovieCard from '../Components/MovieCard'
@@ -17,7 +16,7 @@ class WatchList extends Component {
                 <Header />
                 
                 {
-                    watchlists.length > 0 ?
+                    if (watchlists) {
                         <div className="container-fluid card-row">
                             <div className="row">
                                 {
@@ -27,8 +26,10 @@ class WatchList extends Component {
                                 }
                             </div>
                         </div>
-                    : <NoWatchlist />
-                    
+                    }
+                    else{
+                        <NoWatchlist />
+                    }
                 }
                 
             </>

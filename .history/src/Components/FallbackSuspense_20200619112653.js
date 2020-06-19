@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../Styles/FallBackSuspense.css'
 
 
 class FallbackSuspense extends Component {

@@ -1,6 +1,4 @@
 import React from 'react';
-import '../Styles/ErrorBoundary.css';
-import { Link } from 'react-router-dom';
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -18,15 +16,11 @@ export default class ErrorBoundary extends React.Component {
     render() {
         if (this.state.hasError) {
             return (
-                <div className="wrapper">
-                    <div className="container">
-                        <div className="errorBoundary">
-                            <h1>An error occurred.</h1>
-                            <Link className="goBack" to="/"><i className="fa fa-arrow-left"></i>  Go back </Link>
-                        </div>
-                        
+                <div style={{ minHeight: '70%' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '80vh', width: '100vw' }}>
+                        <div><h1 className="text-center">I'm just a useless ErrorBoundary page</h1></div>
                     </div>
-                </div>  
+                </div>
             );
         }
 

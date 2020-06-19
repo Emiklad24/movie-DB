@@ -1,0 +1,12 @@
+.card-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width:600px){
+    .container-lg .card-row .row{
+        margin: 10px;
+    }
+}

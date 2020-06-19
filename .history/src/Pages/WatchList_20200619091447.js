@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import '../Styles/Watchlist.css'
 import { connect } from 'react-redux';
 import Header from '../Components/Header'
 import MovieCard from '../Components/MovieCard'
-import NoWatchlist from '../Components/NoWatchlist'
 
 class WatchList extends Component {
 
@@ -15,22 +13,16 @@ class WatchList extends Component {
         return (
             <>
                 <Header />
-                
-                {
-                    watchlists.length > 0 ?
-                        <div className="container-fluid card-row">
-                            <div className="row">
-                                {
-                                    watchlists.map((movie, index) =>
-                                        <MovieCard movie={movie} key={movie.id} canDelete={true} onWatchList={false} />
-                                    )
-                                }
-                            </div>
-                        </div>
-                    : <NoWatchlist />
-                    
-                }
-                
+
+                <div className="container-fluid card-row">
+                    <div className="row">
+                        {
+                            watchlists.map((movie, index) =>
+                                <MovieCard movie={movie} key={movie.id} canDelete={true} onWatchList={false} />
+                            )
+                        }
+                    </div>
+                </div>
             </>
         )
     }
