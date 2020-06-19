@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
-import '../Styles/MovieActorList.css'
 
 
 class RecommendedMovies extends Component {
@@ -8,6 +7,7 @@ class RecommendedMovies extends Component {
         const { recommedations } = this.props
         return (
             <>
+                <div className="title">Recommendations</div>
                 {
                     recommedations ?
                         recommedations.map((recommedation) =>

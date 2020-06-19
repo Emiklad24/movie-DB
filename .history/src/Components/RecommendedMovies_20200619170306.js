@@ -8,6 +8,7 @@ class RecommendedMovies extends Component {
         const { recommedations } = this.props
         return (
             <>
+                <h3 className="cast-title mb-4">recommedation</h3>
                 {
                     recommedations ?
                         recommedations.map((recommedation) =>

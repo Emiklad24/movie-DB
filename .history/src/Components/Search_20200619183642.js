@@ -1,12 +1,29 @@
 import React, { Component } from 'react'
-import '../Styles/SearchResults.css'
+import '../Styles/Search.css'
 
-class SearchResults extends Component {
+
+
+class Search extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            showSearchResults: false
+        }
+    }
+    displaySearchResults = () => {
+        this.setState( {
+            showSearchResults: !this.state.showSearchResults
+        })
+    }
     render() {
-        return (
+        return ReactDOM.createPortal ( 
             <>
-                <div className="container">                    
-                        <div className="displaySearchResults">
+               <div className="btn-Modal" >
+                   <i className="fa fa-search"></i>
+               </div>
+
+               <div className="container">
+                    <div className="displaySearchResults">
                             <div className="container">
                                 <div className="searchBar">
                                     <div className="input-group mb-2">
@@ -180,10 +197,10 @@ class SearchResults extends Component {
                                 </div>
                             </div>
                         </div>
-                </div>
-            </>
+               </div>
+            </>, document.getElementById("searchResults")
         )
     }
 }
 
-export default SearchResults
+export default Search

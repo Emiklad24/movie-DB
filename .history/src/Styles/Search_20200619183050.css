@@ -3,19 +3,15 @@ body {
   position: relative;
 }
 
-.displaySearch, #search-modal {
+.displaySearch {
   display: block;
-  z-index: 999 !important;
-  position: fixed;
-  top:0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  min-height: 100vh;
-  min-width: 100%;
-  overflow: auto;
 }
 
-
+.searchResults {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  min-height: 100vh;
+  z-index: 999;
+}
 .btn-Modal {
 position: fixed;
 right: 3%;
