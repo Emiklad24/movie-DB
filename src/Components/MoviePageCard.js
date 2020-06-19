@@ -77,7 +77,7 @@ class MoviePageCard extends Component {
         return (
             <div className="container">
                 <div className="movie">
-                    <img src={`https://image.tmdb.org/t/p/w300${currentMoviePosterPath}`} alt="The High Note" className="movie-img" />
+                    <img src={`https://image.tmdb.org/t/p/w300${currentMoviePosterPath}`} alt={currentMovieName} className="movie-img" title={currentMovieName} />
                     <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start">
                         <h2 className="movie-title">{currentMovieName}</h2>
                         <h6 className="movie-tagline">{currentMovieTagline}</h6>
