@@ -42,7 +42,7 @@ class MovieCard extends Component {
 
     addMovieToWatchList = async (movie) => {
 
-        const { isAuthenticated, userData, addWatchlist } = this.props;
+        const { isAuthenticated, userData, addWatchlist, movieWatchlists } = this.props;
 
         const movieWatchlist = movie.title || movie.original_name || movie.original_title;
 
@@ -50,7 +50,8 @@ class MovieCard extends Component {
             swal(`You have to log in to add ${movieWatchlist} to your watchlist`);
             return
         }
-        const watchlistData = { ...movie, movieId: movie.id, userId: userData._id, archived: false }
+        const uniqueMovieId = userData._id + movie.id
+        const watchlistData = { ...movie, movieId: movie.id, userId: userData._id, archived: false, uniqueMovieId }
         try {
             await client.authenticate()
             const addedWatchlist = await client.service('watchlists').create(watchlistData);
@@ -61,7 +62,7 @@ class MovieCard extends Component {
             addWatchlist(addedWatchlist);
 
         } catch (error) {
-            if (error.message === "movieId: value already exists.") {
+            if (error.message === "uniqueMovieId: value already exists.") {
                 toast.error("Movie has been added already")
             }
             else {
@@ -120,6 +121,7 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
     isAuthLoading: state.auth.isLoading,
     userData: state.auth.user,
+    movieWatchlists: state.watchlists.watchlists
 });
 
 export default connect(mapStateToProps, { addWatchlist, removeWatchlist })(MovieCard)

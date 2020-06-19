@@ -8,6 +8,7 @@ import {
     REGISTER_SUCCESS,
     REGISTER_LOADING,
     REGISTER_FAIL,
+    CLEAR_ALL_WATCHLIST
 
 } from './types';
 import client from '../FeathersClient'
@@ -43,6 +44,7 @@ export const logout = () => async (dispatch) => {
     try {
         await client.logout()
         dispatch({ type: LOGOUT_SUCCESS, })
+        dispatch({ type: CLEAR_ALL_WATCHLIST, })
     }
     catch (error) {
         dispatch({ type: LOGOUT_SUCCESS, })

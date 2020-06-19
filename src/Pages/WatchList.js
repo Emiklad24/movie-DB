@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Header from '../Components/Header'
 import MovieCard from '../Components/MovieCard'
-
+import { fetchWatchlists } from '../actions/watchlistAction'
 class WatchList extends Component {
-
+    componentDidMount = () => {
+        this.props.fetchWatchlists(this.props.userData._id)
+    }
     render() {
-        const { movies, upcomingMovies, watchlists } = this.props;
+        const { watchlists } = this.props;
 
-        const moviez = [...movies, ...upcomingMovies]
 
         return (
             <>
@@ -33,8 +34,9 @@ const mapStateToProps = (state) => ({
     error: state.popularMovies.error,
     movies: state.popularMovies.movies,
     upcomingMovies: state.upcomingMovies.movies,
-    watchlists: state.watchlists.watchlists
+    watchlists: state.watchlists.watchlists,
+    userData: state.auth.user
 });
 
-export default connect(mapStateToProps, {})(WatchList)
+export default connect(mapStateToProps, { fetchWatchlists })(WatchList)
 
