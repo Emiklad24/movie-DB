@@ -6,9 +6,18 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import { toast } from 'react-toastify';
 import client from '../FeathersClient';
+import StarRatings from 'react-star-ratings';
 
 
 class MoviePageCard extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            rating: 0
+        }
+    }
+
 
     getGenre = movie => {
         let genre = '';
@@ -20,7 +29,18 @@ class MoviePageCard extends Component {
         }
         return genre;
     }
+    changeRating = (newRating, name) => {
+        this.setState({ rating: newRating });
 
+        swal({
+            title: `Rate ${name} ?`, text: `Would you like to send your rating ?`, buttons: ["I'll rate later", `Give ${name} ${newRating} ${newRating > 1 ? "stars" : "star"}`], dangerMode: true,
+        })
+            .then((willStart) => {
+                if (willStart) {
+
+                }
+            });
+    }
     addMovieToWatchList = async (movie) => {
 
         const { isAuthenticated, userData, addWatchlist } = this.props;
@@ -75,7 +95,7 @@ class MoviePageCard extends Component {
 
 
         return (
-            <div className="container">
+            <div className="container" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300${currentMoviePosterPath})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', width: '100%' }}>
                 <div className="movie">
                     <img src={`https://image.tmdb.org/t/p/w300${currentMoviePosterPath}`} alt={currentMovieName} className="movie-img" title={currentMovieName} />
                     <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start">
@@ -86,8 +106,17 @@ class MoviePageCard extends Component {
                             <div className="modal"></div>
                             <button type="button" id="watchlist-btn" className="movie-like mr-2 undefined btn btn-secondary" title="Add to my watchlist" onClick={() => this.addMovieToWatchList(movie)}>
                                 <i className="fa fa-bookmark" aria-hidden="true"></i> Add to my WatchList </button>
-                            <button type="button" id="watchlist-btn" className="movie-like mr-2 undefined btn btn-secondary" title="Add review">
-                                <i className="fa fa-star" aria-hidden="true"></i> Review </button>
+
+                            <StarRatings
+                                rating={this.state.rating}
+                                starRatedColor="#daa520"
+                                starHoverColor="#daa520"
+                                changeRating={this.changeRating}
+                                numberOfStars={5}
+                                name={currentMovieName}
+                                starDimension="15px"
+                                starSpacing="5px"
+                            />
                         </div>
                         <p className="movie-overview">
                             {movie.overview || "No Overview for this movie"}

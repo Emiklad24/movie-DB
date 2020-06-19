@@ -100,7 +100,7 @@ class MovieCard extends Component {
                                 {
                                     canDelete === true ?
                                         <Link className="watchlist-btn" onClick={() => this.deleteWatchlist(movie)}>
-                                            <i className="fa fa-remove"></i>
+                                            <i className="fa fa-trash"></i>
                                         </Link> : null
                                 }
                                 <Link className="movie-title" to={`/movie/${currentMovieName}?id=${currentMovieId}`}
