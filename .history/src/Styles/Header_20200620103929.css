@@ -57,6 +57,10 @@
   color: #daa520 !important;
   padding-left: 10px;
 }
+#logo{
+  background-image: url('../Assets/Logos/grupa-logo.png') !important;
+  z-index: 999;
+}
 .header .nav .navbar-items a.item:hover {
   text-decoration: none !important;
 }

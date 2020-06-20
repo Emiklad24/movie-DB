@@ -3,6 +3,7 @@ import '../Styles/Header.css';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { logout } from '../actions/authAction'
+import { logo } from './grupa-logo.png';
 
 
 export class Header extends Component {
@@ -18,7 +19,7 @@ export class Header extends Component {
 
                         <div className="logo">
                             <Link className="navbar-brand" to="/">
-                                Movie App
+                                <img src= {logo} alt="Grupa Logo" />
                             </Link>
                         </div>
                         <div className="navbar-items">

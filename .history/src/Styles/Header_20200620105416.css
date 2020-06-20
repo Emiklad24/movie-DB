@@ -57,6 +57,14 @@
   color: #daa520 !important;
   padding-left: 10px;
 }
+.navbar-brand {
+  max-height: 150px;
+  width: 200px;
+}
+.navbar-brand img{
+  height: 100%;
+  width: 100%;
+}
 .header .nav .navbar-items a.item:hover {
   text-decoration: none !important;
 }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/authAction'
 
 
+
 export class Header extends Component {
     render() {
 
@@ -18,7 +19,7 @@ export class Header extends Component {
 
                         <div className="logo">
                             <Link className="navbar-brand" to="/">
-                                Movie App
+                                <img src="" alt="grupa logo" />
                             </Link>
                         </div>
                         <div className="navbar-items">
