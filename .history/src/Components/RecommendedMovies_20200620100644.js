@@ -11,7 +11,7 @@ class RecommendedMovies extends Component {
             <>
 
                 <div className="container" style={{ width: '100%' }}>
-                    <h3 className="cast-title mt-4 ml-2">Recommendations</h3>
+                    <h3 className="cast-title mb-4 pl-1">Recommendations</h3>
                 </div>                      {
                     recommedations ?
                         recommedations.map((recommedation) =>
