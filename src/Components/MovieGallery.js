@@ -24,7 +24,7 @@ class MovieGallery extends Component {
     render() {
         const { posters } = this.props
         return (
-            <div className="container" >
+            <div className="container uk-animation-fade" >
                 {
                     posters ?
                         <ImageGallery items={this.getImages()} />

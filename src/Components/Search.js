@@ -1,204 +1,102 @@
 import React, { Component } from 'react'
 import '../Styles/Search.css'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
+import Loading from './Loading'
+import MovieCard from './MovieCard'
+
 
 
 
 class Search extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            showSearchResults: false
+            searchResults: null,
+            isLoading: false,
+            error: false
         }
     }
-    displaySearchResults = () => {
-        this.setState( {
-            showSearchResults: !this.state.showSearchResults
-        })
+    showModal = () => {
+
+        try {
+            let modal = document.getElementById("search-modal")
+            const closeScheduledFAB = document.getElementById('toggle-modal-button');
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+                closeScheduledFAB.innerHTML = `<i class="fa fa-search uk-animation-slide-right-medium"></i>`
+            }
+            else {
+                modal.style.display = "block";
+                closeScheduledFAB.innerHTML = `<i class="fa fa-remove uk-animation-slide-right-medium"></i>`
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    searchMovies = async (e) => {
+        if (e.target.value.length > 1) {
+            try {
+
+                this.setState({ isLoading: true, error: false });
+
+                const movieSearchResults = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
+                    params: { api_key: process.env.REACT_APP_API_KEY, language: "en-US", query: e.target.value, page: 1, include_adult: false }
+                });
+
+                this.setState({ isLoading: false, error: false, searchResults: movieSearchResults.data.results });
+            } catch (error) {
+                console.log(error);
+                this.setState({ isLoading: false, error: true });
+            }
+        }
     }
     render() {
-        return ReactDOM.createPortal ( 
+        const { isLoading, error, searchResults } = this.state;
+        return ReactDOM.createPortal(
             <>
-               <div className="btn-Modal" >
-                   <i className="fa fa-search"></i>
-               </div>
+                <div className="btn-Modal" id="toggle-modal-button" onClick={this.showModal}>
+                    <i className="fa fa-search uk-animation-slide-right-medium"></i>
+                </div>
 
-               <div className="container" id="search-modal">
+                <div className="container uk-animation-slide-right-medium" id="search-modal">
                     <div className="displaySearchResults">
-                            <div className="container">
-                                <div className="searchBar">
-                                    <div className="input-group mb-2">
-                                        <div className="input-group-prepend">
-                                            <div className="input-group-text">
-                                                <i className="fa fa-search"></i>
-                                            </div>
+                        <div className="container">
+                            <div className="searchBar">
+                                <div className="input-group mb-2">
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text">
+                                            <i className="fa fa-search"></i>
                                         </div>
-                                        <input type="text" className="form-control" id="searchBtn" placeholder="search by movie title" />
                                     </div>
-                                </div>
-                            </div>
-                            <div className="container  card-row">
-                                <div className="row">
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card fadeIn animated">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="container  card-row">
-                                <div className="row">
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card fadeIn animated">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div className="col">
-                                        <a href="#">
-                                            <div className="card">
-                                                <div className="card-img">
-                                                    <img src="images/movieImg2.jpg" />
-                                                </div>
-                                                <div className="card-content">
-                                                    <span className="card-rating">8.7</span>
-                                                    <div className="movie-content">
-                                                        <a className="watchlist-btn">
-                                                            <i className="fa fa-bookmark"></i>
-                                                        </a> 
-                                                        <div className="movie-title">Wreck-it Ralph</div>
-                                                        <p>Animation, Comedy, Family</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    <input type="text" className="form-control" id="searchBtn" placeholder="search by movie title" onChange={this.searchMovies} autoFocus />
                                 </div>
                             </div>
                         </div>
-               </div>
+                        {
+                            isLoading ?
+                                <div className="container-fluid card-row">
+                                    <div className="row">
+                                        <Loading />
+                                    </div>
+                                </div> :
+
+                                searchResults ?
+                                    <div className="container  card-row">
+                                        <div className="row">
+                                            {
+                                                searchResults.map((movie) =>
+                                                    <MovieCard movie={movie} key={movie.id} canDelete={false} onWatchlist={false} />
+                                                )
+                                            }
+                                        </div>
+                                    </div> : null
+                        }
+
+
+                    </div>
+                </div>
             </>, document.getElementById("searchResults")
         )
     }

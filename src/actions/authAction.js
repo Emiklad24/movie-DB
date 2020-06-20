@@ -5,10 +5,8 @@ import {
     LOGOUT_SUCCESS,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    REGISTER_SUCCESS,
-    REGISTER_LOADING,
-    REGISTER_FAIL,
-    CLEAR_ALL_WATCHLIST
+    CLEAR_ALL_WATCHLIST,
+    CLEAR_ALL_RATEDMOVIES
 
 } from './types';
 import client from '../FeathersClient'
@@ -45,6 +43,7 @@ export const logout = () => async (dispatch) => {
         await client.logout()
         dispatch({ type: LOGOUT_SUCCESS, })
         dispatch({ type: CLEAR_ALL_WATCHLIST, })
+        dispatch({ type: CLEAR_ALL_RATEDMOVIES, })
     }
     catch (error) {
         dispatch({ type: LOGOUT_SUCCESS, })

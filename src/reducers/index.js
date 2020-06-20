@@ -5,7 +5,7 @@ import nowPlayingMoviesReducer from './nowPlayingMoviesReducer'
 import topRatedMoviesReducer from './topRatedMoviesReducer'
 import upcomingMoviesReducer from './upcomingMoviesReducer'
 import watchlistReducer from './watchlistReducer'
-
+import ratedMoviesReducer from './ratedMoviesReducer'
 
 export default combineReducers({
     auth: authReducer,
@@ -13,5 +13,6 @@ export default combineReducers({
     nowPlayingMovies: nowPlayingMoviesReducer,
     topRatedMovies: topRatedMoviesReducer,
     upcomingMovies: upcomingMoviesReducer,
-    watchlists: watchlistReducer
+    watchlists: watchlistReducer,
+    ratedMovies: ratedMoviesReducer
 })

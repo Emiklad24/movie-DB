@@ -5,11 +5,11 @@ export class NoResultsFound extends Component {
     render() {
         return (
             <>
-               <div class="container">
+                <div class="container uk-animation-fade">
                     <div class="noResults">
                         <div>No results found</div>
                     </div>
-                </div> 
+                </div>
             </>
         )
     }

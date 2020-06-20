@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-
-import MovieCard from './MovieCard'
-
+import MovieCard from './MovieCard';
+import FetchMore from './FetchMore'
+import { fetchMoreUpcomingMovies } from '../actions/upcomingMoviesAction'
 class UpcomingMovies extends Component {
 
     render() {
-        const { movies } = this.props;
+        const { movies, fetchMoreUpcomingMovies } = this.props;
 
         return (
             <>
@@ -15,6 +15,7 @@ class UpcomingMovies extends Component {
                         <MovieCard movie={movie} key={movie.id} canDelete={false} onWatchlist={false} />
                     )
                 }
+                <FetchMore fetchMore={fetchMoreUpcomingMovies} />
             </>
         )
     }
@@ -26,5 +27,5 @@ const mapStateToProps = (state) => ({
     movies: state.upcomingMovies.movies
 });
 
-export default connect(mapStateToProps, {})(UpcomingMovies)
+export default connect(mapStateToProps, { fetchMoreUpcomingMovies })(UpcomingMovies)
 

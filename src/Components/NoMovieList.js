@@ -9,14 +9,13 @@ class NoWatchlist extends Component {
                 <div className="container">
                     <div className="card-wrapper">
                         <div className="card-lg uk-animation-fade delay: 500">
-                            <div>No movies on your watchlist.</div>
-                
+                            <div>{this.props.message}</div>
                             <Link to="/">
                                 <button className="goBtn">Add Movies</button>
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
-                </div>  
+                </div>
             </>
         )
     }

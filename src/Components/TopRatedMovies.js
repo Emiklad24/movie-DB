@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import FetchMore from './FetchMore';
+import { fetchMoreTopRatedMovies } from '../actions/topRatedMoviesAction'
 
 import MovieCard from './MovieCard'
 
 class TopRated extends Component {
 
     render() {
-        const { movies } = this.props;
+        const { movies, fetchMoreTopRatedMovies } = this.props;
 
         return (
             <>
@@ -15,6 +17,7 @@ class TopRated extends Component {
                         <MovieCard movie={movie} key={movie.id} canDelete={false} onWatchlist={false} />
                     )
                 }
+                <FetchMore fetchMore={fetchMoreTopRatedMovies} />
             </>
         )
     }
@@ -26,5 +29,5 @@ const mapStateToProps = (state) => ({
     movies: state.topRatedMovies.movies
 });
 
-export default connect(mapStateToProps, {})(TopRated)
+export default connect(mapStateToProps, { fetchMoreTopRatedMovies })(TopRated)
 

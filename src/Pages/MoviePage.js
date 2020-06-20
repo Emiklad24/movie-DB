@@ -8,6 +8,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import RecommendedMovies from '../Components/RecommendedMovies';
 import '../Styles/MoviesMenu.css';
+import Search from '../Components/Search'
+
 
 class MoviePage extends Component {
 
@@ -74,7 +76,7 @@ class MoviePage extends Component {
                 params: { api_key: process.env.REACT_APP_API_KEY, language: "en-US", include_image_language: "en" }
             })
             this.setState({ isPosterLoading: false, isPosterError: false, posters: moviePosters.data.posters });
-            console.log(moviePosters.data.posters)
+
         } catch (error) {
             console.log(error)
             this.setState({ isPosterLoading: false, isPosterError: true })
@@ -88,7 +90,7 @@ class MoviePage extends Component {
             const movies = await axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations`, {
                 params: { api_key: process.env.REACT_APP_API_KEY, language: "en", page: 1 }
             });
-            console.log(movies.data.results)
+
             this.setState({ recommedations: movies.data.results })
         } catch (error) {
             console.log(error)
@@ -129,6 +131,7 @@ class MoviePage extends Component {
                         </div>
                         : null
                 }
+                <Search />
             </>
         )
     }

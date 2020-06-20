@@ -5,14 +5,16 @@ import MoviesMenu from '../Components/MoviesMenu'
 import Search from '../Components/Search';
 import { connect } from 'react-redux';
 import { fetchWatchlists } from '../actions/watchlistAction'
+import { fetchRatedMovies } from '../actions/ratedMoviesAction'
 
 
 class Movies extends Component {
 
     componentDidMount = () => {
-        const { isAuthenticated, userData, fetchWatchlists } = this.props;
+        const { isAuthenticated, userData, fetchWatchlists, fetchRatedMovies } = this.props;
         if (isAuthenticated) {
-            fetchWatchlists(userData._id)
+            fetchWatchlists(userData._id);
+            fetchRatedMovies(userData._id)
         }
     }
 
@@ -35,5 +37,5 @@ const mapStateToProps = (state) => ({
     userData: state.auth.user,
 });
 
-export default connect(mapStateToProps, { fetchWatchlists })(Movies)
+export default connect(mapStateToProps, { fetchWatchlists, fetchRatedMovies })(Movies)
 
