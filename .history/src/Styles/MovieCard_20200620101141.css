@@ -11,8 +11,8 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-  -webkit-transition: transform 0.3s ease-in;
-          transition: transform 0.3s ease-in;
+  -webkit-transition: transform 0.7s ease;
+          transition: transform 0.7s ease;
 }
 
 .card .card-img {
