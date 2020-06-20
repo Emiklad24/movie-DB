@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { login } from '../actions/authAction'
 import client from '../FeathersClient';
 import FallbackSuspense from '../Components/FallbackSuspense';
-
+import Search from '../Components/Search'
 
 class Login extends Component {
     constructor(props) {
@@ -81,13 +81,12 @@ class Login extends Component {
                             </div>
                             <div className="form-row login">
                                 <input type="submit" value="Login" disabled={isLoading} />
-                                {/* <div className="login-icons">Sign in with <Link to="#"><i className="fa fa-google"></i></Link>
-                                </div> */}
                                 <p>Don't have an account <i className="fa fa-arrow-right"></i><Link to="/signup"> Create account</Link></p>
                             </div>
                         </form>
                     </div>
                 </div>
+                <Search />
             </>
         )
     }

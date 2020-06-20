@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import MovieCard from './MovieCard';
+import FetchMore from './FetchMore'
+import { fetchMoreNowPlayingMovies } from '../actions/nowPlayingMoviesAction'
 
-import MovieCard from './MovieCard'
+
 
 class NowPlaying extends Component {
 
@@ -9,7 +12,7 @@ class NowPlaying extends Component {
 
 
     render() {
-        const { movies } = this.props;
+        const { movies, fetchMoreNowPlayingMovies } = this.props;
 
         return (
             <>
@@ -18,6 +21,7 @@ class NowPlaying extends Component {
                         <MovieCard movie={movie} key={movie.id} canDelete={false} onWatchlist={false} />
                     )
                 }
+                <FetchMore fetchMore={fetchMoreNowPlayingMovies} />
             </>
         )
     }
@@ -29,5 +33,5 @@ const mapStateToProps = (state) => ({
     movies: state.nowPlayingMovies.movies
 });
 
-export default connect(mapStateToProps, {})(NowPlaying)
+export default connect(mapStateToProps, { fetchMoreNowPlayingMovies })(NowPlaying)
 

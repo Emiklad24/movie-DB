@@ -13,7 +13,7 @@ export class Header extends Component {
 
         return (
 
-            <header className="header">
+            <header className="header uk-animation-fade">
                 <div className="container">
                     <nav className="nav">
 
@@ -35,6 +35,12 @@ export class Header extends Component {
                                                 <i className="fa fa-bookmark"></i>
                                             </span>
                                             <span className="menu-text">Watchlist</span>
+                                        </Link>
+                                        <Link className="item" to="/rated">
+                                            <span className="nav-icon">
+                                                <i className="fa fa-star"></i>
+                                            </span>
+                                            <span className="menu-text">Rated Movies</span>
                                         </Link>
 
                                         <Link className="item" to="#" onClick={() => logout()}>

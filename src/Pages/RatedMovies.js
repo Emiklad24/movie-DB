@@ -2,32 +2,28 @@ import React, { Component } from 'react'
 import '../Styles/Watchlist.css'
 import { connect } from 'react-redux';
 import Header from '../Components/Header'
-import MovieCard from '../Components/MovieCard'
+import MovieCard from '../Components/MovieCardRatedMovies'
 import NoMovieList from '../Components/NoMovieList'
 import Loading from '../Components/Loading'
-import { fetchWatchlists } from '../actions/watchlistAction'
-import Search from '../Components/Search';
+import { fetchRatedMovies } from '../actions/ratedMoviesAction';
+import Search from '../Components/Search'
 
 
-
-
-class WatchList extends Component {
+class RatedMovies extends Component {
     componentDidMount = () => {
-        this.props.fetchWatchlists(this.props.userData._id)
+        this.props.fetchRatedMovies(this.props.userData._id)
     }
     render() {
-        const { watchlists, isLoading } = this.props;
-
-
+        const { ratedMovies, isLoading } = this.props;
         return (
             <>
                 <Header />
                 {
-                    watchlists.length > 0 ?
+                    ratedMovies.length > 0 ?
                         <div className="container-fluid card-row">
                             <div className="row">
                                 {
-                                    watchlists.map((movie, index) =>
+                                    ratedMovies.map((movie, index) =>
                                         <MovieCard movie={movie} key={movie.id} canDelete={true} onWatchList={false} />
                                     )
                                 }
@@ -40,7 +36,7 @@ class WatchList extends Component {
                                     <Loading />
                                 </div>
                             </div> :
-                            <NoMovieList message={"No movies on your watchlist."} />
+                            <NoMovieList message={"You have no rated movie at the moment."} />
                 }
                 <Search />
             </>
@@ -49,10 +45,10 @@ class WatchList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    watchlists: state.watchlists.watchlists,
     userData: state.auth.user,
-    isLoading: state.watchlists.isLoading
+    ratedMovies: state.ratedMovies.ratedMovies,
+    isLoading: state.ratedMovies.isLoading,
 });
 
-export default connect(mapStateToProps, { fetchWatchlists })(WatchList)
+export default connect(mapStateToProps, { fetchRatedMovies })(RatedMovies)
 

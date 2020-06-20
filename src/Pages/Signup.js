@@ -8,6 +8,7 @@ import { login } from '../actions/authAction'
 import client from '../FeathersClient';
 import FallbackSuspense from '../Components/FallbackSuspense';
 import { toast } from 'react-toastify';
+import Search from '../Components/Search'
 
 
 
@@ -111,14 +112,12 @@ class Signup extends Component {
                             </div>
                             <div className="form-row login">
                                 <input type="submit" value="Sign Up" disabled={isLoading} />
-
-                                {/* <div className="login-icons">Sign up with <Link to="/signup"><i className="fa fa-google"></i></Link>
-                                </div> */}
                                 <p>Already have an account <i className="fa fa-arrow-right"></i><Link to="/login"> Login</Link></p>
                             </div>
                         </form>
                     </div>
                 </div>
+                <Search />
             </>
         )
     }

@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import client from '../FeathersClient'
-import { toast } from 'react-toastify';
-import { addWatchlist, removeWatchlist } from '../actions/watchlistAction'
+import StarRatings from 'react-star-ratings';
+import { removeRatedMovies } from '../actions/ratedMoviesAction'
 import noImage from '../Assets/Images/noimage.png'
+
+
+
+
+
 
 class MovieCard extends Component {
 
@@ -22,56 +27,23 @@ class MovieCard extends Component {
         return genre;
     }
 
-    deleteWatchlist = async (movie) => {
-        const { removeWatchlist, isAuthenticated } = this.props;
+    deleteRatedMovie = async (movie) => {
+        const { isAuthenticated, removeRatedMovies } = this.props;
         if (!isAuthenticated) {
             swal("you have to log in to delete a watchlist")
         }
         else {
             try {
                 await client.authenticate();
-                await client.service('watchlists').remove(movie._id)
-                removeWatchlist(movie._id);
+                await client.service('ratedmovies').remove(movie._id)
+                removeRatedMovies(movie._id);
             } catch (error) {
                 swal(`Delete failed, please try again`);
                 console.log(error)
             }
-
         }
     }
 
-    addMovieToWatchList = async (movie) => {
-
-        const { isAuthenticated, userData, addWatchlist, movieWatchlists } = this.props;
-
-        const movieWatchlist = movie.title || movie.original_name || movie.original_title;
-
-        if (!isAuthenticated) {
-            swal(`You have to log in to add ${movieWatchlist} to your watchlist`);
-            return
-        }
-        const uniqueMovieId = userData._id + movie.id
-        const watchlistData = { ...movie, movieId: movie.id, userId: userData._id, archived: false, uniqueMovieId }
-        try {
-            await client.authenticate()
-            const addedWatchlist = await client.service('watchlists').create(watchlistData);
-
-            const addedWatchlistName = addedWatchlist.title || addedWatchlist.original_name || addedWatchlist.original_title;
-
-            toast.success(`${addedWatchlistName} has been added to your watchlist successfully`)
-            addWatchlist(addedWatchlist);
-
-        } catch (error) {
-            if (error.message === "uniqueMovieId: value already exists.") {
-                toast.error("Movie has been added already")
-            }
-            else {
-                toast.error("Operation Failed!")
-            }
-            console.log(error)
-        }
-        return
-    }
 
     someMethod = () => {
         const { forceUpdate, movie } = this.props;
@@ -84,41 +56,43 @@ class MovieCard extends Component {
     }
 
     render() {
-        const { movie, onWatchList, canDelete, } = this.props
+        const { movie } = this.props
         const currentMovieName = movie.title || movie.original_name || movie.original_title;
         const currentMovieId = movie.id || movie.movieId;
         const pixPath = movie.poster_path || movie.backdrop_path
+
         return (
             <>
-
                 <div className="col mt-5 uk-animation-fade-meduim" uk-scrollspy="cls: uk-animation-fade; target: .card; delay: 300; repeat: true">
                     <div className="card">
                         <Link to={`/movie/${currentMovieName}?id=${currentMovieId}`}
                             onClick={this.someMethod}>
                             <div className="card-img">
-                                <img className="uk-animation-fade" src={pixPath ? `https://image.tmdb.org/t/p/w185/${pixPath}` : noImage} alt={currentMovieName} />
+                                <img src={pixPath ? `https://image.tmdb.org/t/p/w185/${pixPath}` : noImage} alt={currentMovieName} />
                             </div>
                         </Link>
                         <div className="card-content">
                             <span className="card-rating">{movie.vote_average}</span>
                             <div className="movie-content">
-                                {
-                                    onWatchList !== false ?
-                                        <div className="watchlist-btn" onClick={() => this.addMovieToWatchList(movie)} style={{ cursor: 'pointer' }}>
-                                            <i className="fa fa-bookmark"></i>
-                                        </div> : null
-                                }
-                                {
-                                    canDelete === true ?
-                                        <Link className="watchlist-btn" onClick={() => this.deleteWatchlist(movie)}>
-                                            <i className="fa fa-trash"></i>
-                                        </Link> : null
-                                }
+                                <StarRatings
+                                    rating={movie.rating / 2}
+                                    starRatedColor="#daa520"
+                                    starHoverColor="#daa520"
+                                    changeRating={this.changeRating}
+                                    numberOfStars={5}
+                                    name={currentMovieName}
+                                    starDimension="15px"
+                                    starSpacing="5px"
+                                />
+
+                                <Link className="watchlist-btn" onClick={() => this.deleteRatedMovie(movie)}>
+                                    <i className="fa fa-trash" title={`Remove ${currentMovieName} from rated movies`}></i>
+                                </Link>
+
                                 <Link className="movie-title" to={`/movie/${currentMovieName}?id=${currentMovieId}`}
                                     onClick={this.someMethod}>
                                     <div>{currentMovieName || "Movie App"}</div>
                                 </Link>
-                                <p> {this.getGenre(movie.genre_ids)} </p>
                             </div>
                         </div>
                     </div>
@@ -132,9 +106,8 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
     isAuthLoading: state.auth.isLoading,
     userData: state.auth.user,
-    movieWatchlists: state.watchlists.watchlists
 });
 
-export default connect(mapStateToProps, { addWatchlist, removeWatchlist })(MovieCard)
+export default connect(mapStateToProps, { removeRatedMovies })(MovieCard)
 
 

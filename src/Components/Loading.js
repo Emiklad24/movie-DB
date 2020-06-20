@@ -5,7 +5,22 @@ class Loading extends Component {
     render() {
         return (
             <>
-                <div className="container">
+                <div className="col uk-animation-fade">
+                    <div className="loading">
+                        <div className="card bg-animation"></div>
+                    </div>
+                </div>
+                <div className="col uk-animation-fade">
+                    <div className="loading">
+                        <div className="card bg-animation"></div>
+                    </div>
+                </div>
+                <div className="col uk-animation-fade">
+                    <div className="loading">
+                        <div className="card bg-animation"></div>
+                    </div>
+                </div>
+                <div className="col uk-animation-fade">
                     <div className="loading">
                         <div className="card bg-animation"></div>
                     </div>

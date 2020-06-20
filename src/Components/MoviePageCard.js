@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../Styles/MoviePageCard.css'
 import { genres } from '../Constant/MovieGenres';
 import { addWatchlist } from '../actions/watchlistAction';
+import { addRatedMovies } from '../actions/ratedMoviesAction';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import { toast } from 'react-toastify';
@@ -37,9 +38,36 @@ class MoviePageCard extends Component {
         })
             .then((willStart) => {
                 if (willStart) {
-
+                    this.SendRating(this.props.movie, newRating * 2)
                 }
             });
+    }
+    SendRating = async (movie, rating) => {
+        const { isAuthenticated, userData, addRatedMovies } = this.props;
+        const movieWatchlist = movie.title || movie.original_name || movie.original_title;
+
+        if (!isAuthenticated) {
+            swal(`You have to log in to rate ${movieWatchlist}`);
+            return
+        }
+        const uniqueMovieId = userData._id + movie.id
+        const newRatedMovie = { ...movie, movieId: movie.id, uniqueMovieId, userId: userData._id, rating, movieName: movieWatchlist };
+        try {
+            await client.authenticate()
+            const ratedMovie = await client.service('ratedmovies').create(newRatedMovie);
+            addRatedMovies(newRatedMovie)
+            toast.success(`${ratedMovie.movieName} has been rated successfully`)
+        } catch (error) {
+            if (error.message === "uniqueMovieId: value already exists.") {
+                toast.error("Movie has been rated already")
+            }
+            else {
+                toast.error("Operation Failed!")
+            }
+            console.log(error)
+        }
+
+
     }
     addMovieToWatchList = async (movie) => {
 
@@ -95,7 +123,7 @@ class MoviePageCard extends Component {
 
 
         return (
-            <div className="container" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300${currentMoviePosterPath})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', width: '100%' }}>
+            <div className="container uk-animation-fade" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300${currentMoviePosterPath})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', width: '100%' }}>
                 <div className="movie">
                     <img src={`https://image.tmdb.org/t/p/w300${currentMoviePosterPath}`} alt={currentMovieName} className="movie-img" title={currentMovieName} />
                     <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start">
@@ -143,7 +171,7 @@ const mapStateToProps = (state) => ({
     userData: state.auth.user,
 });
 
-export default connect(mapStateToProps, { addWatchlist })(MoviePageCard)
+export default connect(mapStateToProps, { addWatchlist, addRatedMovies })(MoviePageCard)
 
 
 

@@ -78,8 +78,6 @@ export class MoviesMenu extends Component {
                                     </div>
                                 </>
                 }
-
-
             </>
         )
     }

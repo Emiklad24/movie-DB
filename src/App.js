@@ -47,6 +47,7 @@ const Movies = lazy(() => import("./Pages/Movies.js"));
 const Signup = lazy(() => import("./Pages/Signup.js"));
 const Login = lazy(() => import("./Pages/Login"));
 const WatchList = lazy(() => import("./Pages/WatchList"));
+const RatedMovies = lazy(() => import("./Pages/RatedMovies"));
 const MoviePage = lazy(() => import("./Pages/MoviePage"));
 
 class App extends React.Component {
@@ -79,6 +80,7 @@ class App extends React.Component {
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/movie/:moviename" component={MoviePage} />
                   <PrivateRoute exact path="/watchlist" component={WatchList} />
+                  <PrivateRoute exact path="/rated" component={RatedMovies} />
                   <Route exact path="/signup" component={Signup} />
                   <Route component={Error404} />
                 </Switch>

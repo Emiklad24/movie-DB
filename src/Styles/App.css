@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
 
-
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,6 @@ html {
   background-color: black !important;
 }
 body {
-  
   background-image: url("../Assets/Images/bg.jpg");
   overflow-x: hidden;
   min-height: 100vh !important;
@@ -31,35 +29,40 @@ body {
 }
 
 .Toastify__toast--error {
-  background-color: rgba(0,0,0,0.5) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   border: 1px solid red !important;
 }
-.Toastify__toast-body{
+.Toastify__toast-body {
   padding: 5px;
 }
 
-.Toastify__close-button > svg, .Toastify__close-button > svg:active, .Toastify__close-button > svg:hover {
+.Toastify__close-button > svg,
+.Toastify__close-button > svg:active,
+.Toastify__close-button > svg:hover {
   fill: white !important;
   height: 20px !important;
   width: 20px !important;
   border-radius: 50% !important;
   border: none !important;
-  
 }
 .Toastify__toast--success {
-  background: rgba(0,0,0,0.5) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
   border: 1px solid rgba(218, 165, 32, 1) !important;
 }
 .swal-modal {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid white;
+}
+.swal-title {
+  color: #daa520 !important;
 }
 .swal-text {
   background-color: transparent;
   padding: 10px 0;
   color: #fff;
 }
-.swal-button, .swal-button-confirm {
+.swal-button,
+.swal-button-confirm {
   padding: 10px;
   border-radius: 20px;
   background-color: #fff;
@@ -68,7 +71,10 @@ body {
   outline: none !important;
   outline-color: white !important;
 }
-.swal-button:hover, .swal-button-confirm:hover, .swal-button-confirm:active, .swal-button:active {
+.swal-button:hover,
+.swal-button-confirm:hover,
+.swal-button-confirm:active,
+.swal-button:active {
   background-color: white !important;
   outline-color: white !important;
 }
@@ -113,7 +119,6 @@ body {
   }
 }
 
-
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -142,7 +147,6 @@ body {
     transform: scale3d(1, 1, 1);
   }
 }
-
 
 @keyframes fadeIn {
   from {
@@ -253,4 +257,3 @@ body {
     justify-items: center;
   }
 }
-
